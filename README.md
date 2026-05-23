@@ -1,3 +1,23 @@
+New readme:
+
+`.bashrc` alias:
+
+Ask:
+```shell
+alias salmon='for dir in /mnt/cache/appdata/bandcamp/docker-data/downloads/ripped/*/; do folder=$(basename "$dir"); flaccount=$(find "$dir" -maxdepth 1 -name "*.flac" 2>/dev/null | wc -l); if [ "$flaccount" -eq 0 ]; then echo "No FLAC in $folder, delete folder..."; rm -rf "$dir"; continue; fi; docker run --rm -it -v /path/to/bandcamp/downloads-rips/:/app/.music -v /path/to/smoked-salmon/:/root/.config/smoked-salmon/ -v /path/to/smoked-salmon/torrents:/app/.torrents -v /path/to/smoked-salmon/downloads/:/app/downloads -v /boot/config/plugins/rclone/.rclone.conf:/root/.config/rclone/rclone.conf ghcr.io/mattermatt1337/smoked-salmon:main up "/app/.music/$folder" -s WEB; echo "Delete $folder..."; rm -rf "$dir"; read -r -p "Next folder? [Y/n]: " ans; [[ "$ans" =~ ^[Nn] ]] && break; done; docker ps -a --filter ancestor=ghcr.io/mattermatt1337/smoked-salmon:alpha -q | xargs -r docker rm -f'
+```
+
+Don't ask (abrupt with CTRL+X and delete/stop salmon docker container by yourself)
+```shell
+alias salmon='for dir in /mnt/cache/appdata/bandcamp/docker-data/downloads/ripped/*/; do folder=$(basename "$dir"); flaccount=$(find "$dir" -maxdepth 1 -name "*.flac" 2>/dev/null | wc -l); if [ "$flaccount" -eq 0 ]; then echo "No FLAC in $folder, delete folder..."; rm -rf "$dir"; continue; fi; docker run --rm -it -v /path/to/bandcamp/downloads-rips/:/app/.music -v /path/to/smoked-salmon/:/root/.config/smoked-salmon/ -v /path/to/smoked-salmon/torrents:/app/.torrents -v /path/to/smoked-salmon/downloads/:/app/downloads -v /boot/config/plugins/rclone/.rclone.conf:/root/.config/rclone/rclone.conf ghcr.io/mattermatt1337/smoked-salmon:main up "/app/.music/$folder" -s WEB; echo "Delete $folder..."; done; docker ps -a --filter ancestor=ghcr.io/mattermatt1337/smoked-salmon:alpha -q | xargs -r docker rm -f'
+```
+
+**! No matter what you decide: customize the paths !**
+
+---
+
+Old readme:
+
 [![Build and Publish Docker Image](https://github.com/smokin-salmon/smoked-salmon/actions/workflows/docker-image.yml/badge.svg)](https://github.com/smokin-salmon/smoked-salmon/actions/workflows/docker-image.yml) [![Linting](https://github.com/smokin-salmon/smoked-salmon/actions/workflows/lint.yml/badge.svg?branch=master)](https://github.com/smokin-salmon/smoked-salmon/actions/workflows/lint.yml)
 
 # 🐟 smoked-salmon  
