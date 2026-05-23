@@ -1,0 +1,2 @@
+# smoked-salmon
+Faster version
