@@ -14,6 +14,8 @@ alias salmon='for dir in /path/to/bandcamp/docker-data/downloads-rips/*/; do fol
 
 **! No matter what you decide: customize the paths !**
 
+This script is intended for the following setup: Smoked-Salmon runs on a local instance, and the torrents are stored on a seedbox. This is working with rclone. This script also deletes all unnecessary torrent files on the local instance that are no longer needed after an upload or for other reasons. If you have a different setup, do not use this script.
+
 ---
 
 Old readme:
