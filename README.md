@@ -13,6 +13,7 @@ New readme:
 **With this version brrrrr:**
 - Start smoked-salmon
 - Check spectrals
+- Loop, lets check next spectrals
 - Thats it. If finished: Abrupt script with N or close the terminal.
 
 `.bashrc` alias:
