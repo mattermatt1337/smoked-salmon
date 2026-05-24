@@ -1,5 +1,20 @@
 New readme:
 
+**Before:**
+- Start smoked-salmon
+- file detected as bad 24bit -> manual Skip with Y or Enter
+- dupe detected -> manual Skip with Y or Enter
+- Check spectrals
+- smoked-salmon ask, if you also want to upload the FLAC as MP3 (yes, you want) -> manual confirmation with Y or Enter
+- No FLAC file in folder (maybe only cover.jpg file) -> Error
+- Start smoked-salmon again by yourself
+- Clean up local machine -> Delete unnecessary files and folders, Delete already to seedbox uploaded files, etc
+
+- **With this version brrrrr:**
+- Start smoked-salmon
+- Check spectrals
+- Thats it. If finished: Abrupt script with N or close the terminal.
+
 `.bashrc` alias:
 
 **Ask:**
