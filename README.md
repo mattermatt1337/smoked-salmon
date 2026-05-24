@@ -10,7 +10,7 @@ New readme:
 - Start smoked-salmon again by yourself
 - Clean up local machine -> Delete unnecessary files and folders, Delete already to seedbox uploaded files, etc
 
-- **With this version brrrrr:**
+**With this version brrrrr:**
 - Start smoked-salmon
 - Check spectrals
 - Thats it. If finished: Abrupt script with N or close the terminal.
