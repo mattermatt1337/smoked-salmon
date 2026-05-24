@@ -2,12 +2,15 @@ New readme:
 
 `.bashrc` alias:
 
-Ask:
+**Ask:**
 ```shell
 alias salmon='for dir in /path/to/bandcamp/docker-data/downloads-rips/*/; do folder=$(basename "$dir"); flaccount=$(find "$dir" -maxdepth 1 -name "*.flac" 2>/dev/null | wc -l); if [ "$flaccount" -eq 0 ]; then echo "No FLAC in $folder, delete folder..."; rm -rf "$dir"; continue; fi; docker run --rm -it -v /path/to/bandcamp/downloads-rips/:/app/.music -v /path/to/smoked-salmon/:/root/.config/smoked-salmon/ -v /path/to/smoked-salmon/torrents:/app/.torrents -v /path/to/smoked-salmon/downloads/:/app/downloads -v /boot/config/plugins/rclone/.rclone.conf:/root/.config/rclone/rclone.conf ghcr.io/mattermatt1337/smoked-salmon:main up "/app/.music/$folder" -s WEB; echo "Delete $folder..."; rm -rf "$dir"; read -r -p "Next folder? [Y/n]: " ans; [[ "$ans" =~ ^[Nn] ]] && break; done; docker ps -a --filter ancestor=ghcr.io/mattermatt1337/smoked-salmon:alpha -q | xargs -r docker rm -f'
 ```
 
-Don't ask (Extremely fast for iteration, BUT the only way to exit: close the terminal window / terminate the SSH session, even pressing CTRL+C does not work)
+**Don't ask:**
+(Extremely fast for iteration, 
+BUT the only way to exit: close the terminal window / terminate the SSH session, even pressing CTRL+C does not work
+After that: Stop/remove running docker container by yourself, it will run in background)
 ```shell
 alias salmon_noask='for dir in /path/to/bandcamp/docker-data/downloads-rips/*/; do folder=$(basename "$dir"); flaccount=$(find "$dir" -maxdepth 1 -name "*.flac" 2>/dev/null | wc -l); if [ "$flaccount" -eq 0 ]; then echo "No FLAC in $folder, delete folder..."; rm -rf "$dir"; continue; fi; docker run --rm -it -v /path/to/bandcamp/downloads-rips/:/app/.music -v /path/to/smoked-salmon/:/root/.config/smoked-salmon/ -v /path/to/smoked-salmon/torrents:/app/.torrents -v /path/to/smoked-salmon/downloads/:/app/downloads -v /boot/config/plugins/rclone/.rclone.conf:/root/.config/rclone/rclone.conf ghcr.io/mattermatt1337/smoked-salmon:main up "/app/.music/$folder" -s WEB; echo "Delete $folder..."; done; docker ps -a --filter ancestor=ghcr.io/mattermatt1337/smoked-salmon:alpha -q | xargs -r docker rm -f'
 ```
